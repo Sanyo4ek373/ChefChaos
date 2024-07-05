@@ -1,16 +1,16 @@
 using UnityEngine;
 
 public class GameInput : MonoBehaviour {
-    private PlayerInputActions playerInputActions;
+    private PlayerInputActions _playerInputActions;
 
     public Vector2 GetMovementVectorNormalized() {
-        Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
+        Vector2 inputVector = _playerInputActions.Player.Move.ReadValue<Vector2>();
         
         return inputVector.normalized;
     }
 
     private void Awake() {
-        playerInputActions = new PlayerInputActions();
-        playerInputActions.Player.Enable();
+        _playerInputActions = new PlayerInputActions();
+        _playerInputActions.Player.Enable();
     }
 }
