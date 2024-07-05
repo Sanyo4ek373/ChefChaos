@@ -9,10 +9,17 @@ public class Player : MonoBehaviour {
     public bool IsWalking => isWalking;
     
     private void Update() {
-
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDirection = new (inputVector.x, 0f, inputVector.y);
 
+        HandleMovement(moveDirection);
+    }
+
+    private void HandleInteractions() {
+
+    }
+
+    private void HandleMovement(Vector3 moveDirection) {
         float moveDistance = moveSpeed * Time.deltaTime;
         float playerRadius = .7f;
         float playerHeight = 2f;
